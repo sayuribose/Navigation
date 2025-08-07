@@ -12,12 +12,27 @@ struct ContentView: View {
         
         
         NavigationStack {
-            Text("This is the root view 😾")
             
-            NavigationLink(destination: Text("You've arrive to the second view 😼")) {
-                Text("Click me 😽")
-            }
-        }//end of navigation stack
+            VStack{
+                Text("This is the root view 😾")
+                
+                NavigationLink(destination: secondview()) {
+                    Text("Click me 😽")
+                        .navigationTitle("home")
+                        .navigationBarTitleDisplayMode(.inline)
+                        .navigationBarHidden(true)
+                    
+                }//end of first navigation
+                    NavigationLink(destination: Text("Why did you click that button..")) {
+                        Text("Do NOT Click me 👻")
+                            .font(.title)
+                        .foregroundColor(Color.green)
+                        
+                    }//end of 2nd navigation
+                    
+                }//end of vstack
+           
+        }
     }
 }
 
